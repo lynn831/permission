@@ -4,10 +4,12 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <!--spring-servlet.xml 主要是处理与请求相关的配置，其实是对应dispatchservlet来处理的  -->
 
+     <!--上下文相关的注解，就可以被spring的bean进行管理-->
     <context:annotation-config />
 
-    <!-- 启动注解驱动的spring mvc 功能 -->
+    <!-- 启动注解驱动的spring mvc 功能 controller,conponent,service 相关的注解，经扫描后自动成为spring相关的bean -->
     <mvc:annotation-driven/>
 
     <mvc:interceptors>

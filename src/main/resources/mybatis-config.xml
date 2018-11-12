@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-
+    <!--org.apache.ibatis.session.Configuration 这个类中定义了，可以使用的name属性-->
     <settings>
         <setting name="safeRowBoundsEnabled" value="true"/>
         <setting name="cacheEnabled" value="false" />
