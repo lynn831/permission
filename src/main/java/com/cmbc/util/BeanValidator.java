@@ -21,7 +21,7 @@ public class BeanValidator {
 
     private static ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
 
-    public static <T> Map<String, String> validate(T t, Class... groups) {
+    public static <T> Map<String, Object> validate(T t, Class... groups) {
         Validator validator = validatorFactory.getValidator();
         Set validateResult = validator.validate(t, groups);
         if (validateResult.isEmpty()) {
@@ -37,7 +37,7 @@ public class BeanValidator {
         }
     }
 
-    public static Map<String, String> validateList(Collection<?> collection) {
+    public static Map<String, Object> validateList(Collection<?> collection) {
         Preconditions.checkNotNull(collection);
         Iterator iterator = collection.iterator();
         Map errors;
@@ -53,7 +53,7 @@ public class BeanValidator {
         return errors;
     }
 
-    public static Map<String, String> validateObject(Object first, Object... objects) {
+    public static Map<String, Object> validateObject(Object first, Object... objects) {
         if (objects != null && objects.length > 0) {
             return validateList(Lists.asList(first, objects));
         } else {
@@ -62,7 +62,7 @@ public class BeanValidator {
     }
 
     public static void check(Object param) throws ParamException {
-        Map<String, String> map = BeanValidator.validateObject(param);
+        Map<String, Object> map = BeanValidator.validateObject(param);
         if (MapUtils.isNotEmpty(map)) {
             throw new ParamException(map.toString());
         }
